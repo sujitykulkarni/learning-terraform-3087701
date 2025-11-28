@@ -23,7 +23,7 @@ resource "aws_instance" "blog" {
   instance_type = var.instance_type
 
   vpc_security_group_ids = [aws_security_group.blog.id]
-  
+
   tags = {
     Name = "HelloWorld"
   }
@@ -33,7 +33,7 @@ resource "aws_security_group" "blog" {
   name = "blog"
   description = "Allow HTTP and HTTPS in. Allow everything out"
 
-  vpc_id = data.aws_vpc.de4.id
+  vpc_id = data.aws_vpc.default.id
 }
 
 resource "aws_security_group_rule" "blog_http_in" {
